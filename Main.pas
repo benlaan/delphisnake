@@ -3,7 +3,8 @@ unit Main;
 interface
 
 uses
-    Windows, SysUtils, Classes, Graphics, Controls, Forms, Grids, ExtCtrls, ComCtrls, StdCtrls, Contnrs;
+    Windows, SysUtils, Classes, Graphics, Controls, Forms, Grids,
+    ExtCtrls, ComCtrls, StdCtrls, Contnrs;
 
 type
     ECollission = class(Exception)
@@ -14,7 +15,9 @@ type
     TSnakeDataType = (dtHead, dtBody, dtTail);
     TGridValue = (gvEmpty, gvWall, gvFood, gvBug, gvSnake1, gvSnake2);
 
-    TSnakeImage = (imHEAD_UP, imHEAD_DOWN, imHEAD_LEFT, imHEAD_RIGHT, imTAIL_UP, imTAIL_DOWN, imTAIL_LEFT, imTAIL_RIGHT,
+    TSnakeImage = (
+        imHEAD_UP, imHEAD_DOWN, imHEAD_LEFT, imHEAD_RIGHT, imTAIL_UP,
+        imTAIL_DOWN, imTAIL_LEFT, imTAIL_RIGHT,
         imBODY_HORZ, imBODY_VERT, imBODY_UL, imBODY_DL, imBODY_UR, imBODY_DR, imFOOD, imBUG);
 
     TSnakeGridCoord = record
@@ -55,7 +58,12 @@ type
         procedure MoveBody(NewPoint: TSnakeData);
         procedure TestForCollision(AHead: TSnakeData);
     public
-        constructor Create(ANo: Integer; StartingPoint: TSnakeData; iInitialLength: Integer; ADirection: TDirection);
+        constructor Create(
+            ANo: Integer; StartingPoint:
+            TSnakeData;
+            iInitialLength: Integer;
+            ADirection: TDirection
+        );
         property Score: Integer read FScore write FScore;
         property Length: Integer read FLength write SetLength;
         property Body: TSnakeBody read FBody;
