@@ -625,7 +625,8 @@ begin
             gvFood: doFoodEaten(Self);
             gvBug: doBugEaten(Self);
             gvWall, gvSnake1, gvSnake2:
-                if (GridValue = gvWall) or (not ((Snake = Self) and (Snake.Body[BodyIndex].DataType = dtTail))) then
+                if (GridValue = gvWall) or
+                   (not ((Snake = Self) and (Snake.Body[BodyIndex].DataType = dtTail))) then
                     raise ECollission.Create;
         end;
 end;
@@ -638,7 +639,8 @@ begin
         if not frmSnakeMain.FStop then
             Result := TSnakeImage(Integer(Direction) + 0)
         else
-            Result := TSnakeImage(Integer(FLastDirection) + 0) // Display the last direction after a collision
+            // Display the last direction after a collision
+            Result := TSnakeImage(Integer(FLastDirection) + 0) 
     end
     else
         if Position = 0 then
